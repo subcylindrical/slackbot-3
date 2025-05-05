@@ -26,11 +26,9 @@ const theme = createTheme({
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     const newSocket = io('http://localhost:3000');
-    setSocket(newSocket);
 
     newSocket.on('newMessage', (data) => {
       setMessages((prevMessages) => [data, ...prevMessages]);
